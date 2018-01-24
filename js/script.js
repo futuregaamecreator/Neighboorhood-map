@@ -135,14 +135,6 @@ function AppViewModel() {
     }
   });
 
-  //toggles the list view
-  this.listToggle = function() {
-    if (self.toggleSymbol() === 'hide') {
-      self.toggleSymbol('show');
-    } else {
-      self.toggleSymbol('hide');
-    }
-  };
   // Foursquare API settings
   clientID = "XNVQVVCEY2LTFUDRV3C2RKPP0GV41I2VBEDBA3R54JTQMGHC";
   clientSecret = "E2PWOZ11ZIZ1J1G5ZWBTIEY1CPKU5VNYF5C0CPPQXOXJDTUG";
