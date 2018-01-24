@@ -1,49 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>George Neighboorhood Map</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="knockout/knockout.js"></script>
 </head>
+
 <body>
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <span class="navbar-title" >George Neighborhood Map</span>
-    </div>
+  <div class="map" id="map">If you can read this, there has been an error loading Google Maps. Please Try Again.</div>
 
-    <form class="navbar-form navbar-right" role="search">
-      <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'">
-          <div class="input-group-btn">
-              <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-          </div>
-      </div>
-    </form>
+  <div class="search" id="search">
+    <input placeholder="Look at George Favorite Places" class="search-box" id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'">
   </div>
-</nav>
-
-  <main class="container-fluid">
-    <div class="row">
-      <div id="map"></div>
-
-      <aside class="col-md-3 col-md-offset-9 collapsed in" id="navbarSupportedContent">
-        <div class="sidenav">
-          <div class="list-group" data-bind="foreach: locationList">
-              <a href="#" class="list-group-item list-group-item-action" data-bind="text: title, click: show"></a>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </main>
+  <div class="list text-center" id="list">
+    <h1>Places</h1>
+    <hr>
+    <ul class="results" id="results" data-bind="foreach: filteredList">
+      <li class="place" id="place" data-bind="text: name, click: bounce"></li>
+    </ul>
+  </div>
+  </div>
+  <script src="knockout/knockout.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR10ATmHkxCj8dlck1o1anIBhaq8-s_mk&callback=startApp&libraries=places" onerror="errorHandling()"></script>
 </body>
-<script src="js/script.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR10ATmHkxCj8dlck1o1anIBhaq8-s_mk&callback=initMap"
- async defer>
-</body>
+
 </html>
