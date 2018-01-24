@@ -11,19 +11,21 @@
 
 <body>
   <!--Google Map-->
-  <div class="map" id="map">If you can read this, there has been an error loading Google Maps. Please Try Again.</div>
+  <div class="map" id="map"></div>
   <!--Search Box-->
   <div class="search" id="search">
-    <input placeholder="Look at George Favorite Places" class="search-box" id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'">
+    <input placeholder="George Favorite Places" class="search-box" id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'">
   </div>
   <!--List of Places-->
   <div class="list text-center" id="list">
-    <h1>Places</h1>
-    <hr>
-    <ul class="results" id="results" data-bind="foreach: filteredList">
-      <li class="place" id="place" data-bind="text: name, click: bounce"></li>
-    </ul>
-  </div>
+    <span class="toggle" data-bind="text: toggleSymbol, click: listToggle">hide</span>
+    <div data-bind="visible: toggleSymbol() === 'hide'">
+      <h1>Places</h1>
+      <hr>
+      <ul class="results" id="results" data-bind="foreach: filteredList">
+        <li class="place" id="place" data-bind="text: name, click: bounce"></li>
+      </ul>
+    </div>
   </div>
   <script src="knockout/knockout.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

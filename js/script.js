@@ -61,6 +61,8 @@ var Location = function(data) {
 
   this.visible = ko.observable(true);
 
+
+
   var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll=' + this.lat + ',' + this.long + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20160118' + '&query=' + this.name;
 
   $.getJSON(foursquareURL).done(function(data) {
@@ -127,6 +129,9 @@ function AppViewModel() {
 
   this.locationList = ko.observableArray([]);
 
+  //Holds value for list togglings
+  this.toggleSymbol = ko.observable('hide');
+
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: {
@@ -134,6 +139,15 @@ function AppViewModel() {
       lng: -84.25556169999999
     }
   });
+
+  //toggles the  view
+  this.listToggle = function() {
+      if(self.toggleSymbol() === 'hide') {
+          self.toggleSymbol('show');
+      } else {
+          self.toggleSymbol('hide');
+      }
+  };
 
   // Foursquare API settings
   clientID = "XNVQVVCEY2LTFUDRV3C2RKPP0GV41I2VBEDBA3R54JTQMGHC";

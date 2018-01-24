@@ -13,7 +13,7 @@ body {
   color: black;
   background-color: transparent;
   position: absolute;
-  top: 25px;
+  top: 45px;
   left: 10px;
   right: 78px;
   cursor: pointer;
@@ -26,6 +26,16 @@ body {
 .search input {
   width: 80%;
   padding: 10px;
+}
+
+.toggle {
+  position: absolute;
+  top: 6px;
+  right: 14px;
+  font-size: 13px;
+  font-style: italic;
+  color: #a6a6a6;
+  cursor: pointer;
 }
 
 .list {
@@ -45,11 +55,25 @@ body {
   cursor: pointer;
 }
 
-@media only screen and (max-device-width: 959px), only screen and (max-width: 959px) {
-  .app {
-    flex-direction: column;
+@media only screen and (max-width: 775px) {
+  .search {
+    top: 50px;
+    left: 50px;
+    padding: 7px;
+    width: 35%;
   }
-  .search-box, .list {
-    font-size: 1.5em;
+  .search input {
+    font-size: 12px;
+    width: 80%;
+  }
+  .list {
+    font-size: 12px;
+    position: absolute;
+    top: 95px;
+    right: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid gray;
+    padding: 15px 10px;
+    width: 30%;
   }
 }
