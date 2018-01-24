@@ -1,5 +1,3 @@
-'use strict';
-
 var initialLocations = [{
     name: 'Popeyes',
     lat: 33.8827222,
